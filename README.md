@@ -57,7 +57,7 @@ The system was designed to streamline the food ordering process by providing dig
 
 ## Local Setup
 
-1. Import `2A_FoodOrderingSystem_Database.txt` into MySQL.
+1. Import `FoodOrderingSystem_Database.txt` into MySQL.
 2. Place the project folder inside the XAMPP `htdocs` directory.
 3. Start Apache and MySQL using XAMPP.
 4. Open the system in a web browser:
