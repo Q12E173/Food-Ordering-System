@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Paper</title>
+    <link rel="icon" href="images/logo.png" type="image/ico">
+    <link rel="stylesheet" href="css/order_paper.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="buttons">
+        <button id="download-btn"><img src="images/downloads.png" alt="Download"></button>
+        <button id="exit-btn"><img src="images/exit.png" alt="Exit"></button>
+    </div>
+    <div class="order-paper">
+        <div class="header">
+            <h1>QikiQ Sushi</h1>
+            <p>Hi, <span id="username">username</span> - thanks for your order, we hope you enjoyed your meals.</p>
+        </div>
+        <hr class="grey-line">
+        <div class="order-info">
+            <p><span id="order-date"></span></p>
+            <h2>It’s ordered!</h2>
+            <p>Your Order ID #<span id="order-id" class="bold"></span></p>
+        </div>
+        <div class="order-items">
+            <ul id="items-list">
+                <!-- Items -->
+            </ul>
+        </div>
+        <p class="pay-at-counter">Please pay at the counter. Thank you!</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadBtn = document.getElementById('download-btn');
+            const exitBtn = document.getElementById('exit-btn');
+
+            fetch('order_paper.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('username').textContent = data.username;
+                        document.getElementById('order-date').textContent = data.order_date;
+                        document.getElementById('order-id').textContent = data.order_id;
+
+                        const itemsList = document.getElementById('items-list');
+                        data.items.forEach(item => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `${item.quantity} ${item.name}`;
+                            itemsList.appendChild(listItem);
+                        });
+                    } else {
+                        alert('Failed to load order details: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching order details:', error);
+                    alert('Failed to load order details.');
+                });
+
+            downloadBtn.addEventListener('click', () => {
+                const element = document.querySelector('.order-paper');
+                html2canvas(element).then((canvas) => {
+                    const link = document.createElement('a');
+                    link.download = 'order.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                }).catch((error) => {
+                    console.error('Error generating image:', error);
+                });
+            });
+
+            exitBtn.addEventListener('click', () => {
+                window.location.href = 'user_menu.html';
+            });
+        });
+    </script>
+</body>
+</html>

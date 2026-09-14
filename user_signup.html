@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Sign Up</title>
+    <link rel="icon" href="images/logo.png" type="image/ico">
+    <link rel="stylesheet" href="css/user_signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="main.html"><img src="images/logo.png" alt="QikiQ Sushi Logo"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="main.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about_us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="admin_login.html"><i class="fas fa-user-shield"></i> Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="signup-container animate__animated animate__fadeInLeft">
+            <div class="text-section welcome-section">
+                <h1>Sign Up</h1>
+                <p id="error-message" class="error"></p>
+                <form id="user-signup-form" method="POST" action="user_signup.php">
+                    <div class="form-group">
+                        <label for="username">Name:</label>
+                        <input type="text" id="username" name="username" required placeholder="e.g. John Doe" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email:</label>
+                        <input type="email" id="signup-email" name="email" required placeholder="e.g. example@domain.com" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" name="phone" required placeholder="e.g. 012-3456789" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password:</label>
+                        <input type="password" id="signup-password" name="password" required placeholder="Enter your password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Re-Enter Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required placeholder="Re-enter your password">
+                    </div>
+                    <button type="submit" class="animate__animated animate__bounceIn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+        <div class="image-section animate__animated animate__fadeInRight">
+            <img src="images/sushi1.png" alt="Sushi Illustration">
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About QikiQ Sushi</h3>
+                <p>QikiQ Sushi is dedicated to offering the finest sushi experience, blending traditional techniques with modern twists. Join us for an unforgettable dining experience.</p>
+                <button onclick="window.location.href='about_us.html'">Learn More</button>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> +6019-7969659</p>
+                <p><i class="fas fa-envelope"></i> qikiqsushi@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Display error message if present in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+        const username = urlParams.get('username');
+        const email = urlParams.get('email');
+        const phone = urlParams.get('phone');
+        if (errorMessage) {
+            document.getElementById('error-message').textContent = errorMessage;
+        }
+        if (username) {
+            document.getElementById('username').value = username;
+        }
+        if (email) {
+            document.getElementById('signup-email').value = email;
+        }
+        if (phone) {
+            document.getElementById('phone').value = phone;
+        }
+    </script>
+    <script src="js/user_signup.js"></script>
+</body>
+</html>

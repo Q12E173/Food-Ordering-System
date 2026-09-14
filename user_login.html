@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Login</title>
+    <link rel="icon" href="images/logo.png" type="image/ico">
+    <link rel="stylesheet" href="css/user_login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="main.html"><img src="images/logo.png" alt="QikiQ Sushi Logo" class="animate__animated animate__fadeInDown"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="main.html" class="animate__animated animate__fadeInDown"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="about_us.html" class="animate__animated animate__fadeInDown"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="admin_login.html" class="animate__animated animate__fadeInDown"><i class="fas fa-user-shield"></i> Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="image-section">
+            <img src="images/sushi2.png" alt="Sushi Illustration" class="animate__animated animate__fadeInLeft">
+        </div>
+        <div class="login-container animate__animated animate__fadeInRight">
+            <h1>User Login</h1>
+            <p id="error-message" class="error"></p>
+            <form id="user-login-form" method="POST" action="user_login.php">
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i></label>
+                    <input type="email" id="email" name="email" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i></label>
+                    <input type="password" id="password" name="password" required placeholder="Password">
+                </div>
+                <button type="submit" class="animate__animated animate__bounceIn">Login</button>
+            </form>
+            <p class="animate__animated animate__fadeInUp">Don't have an account? <a href="user_signup.html">Sign Up Now</a></p>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About QikiQ Sushi</h3>
+                <p>QikiQ Sushi is dedicated to offering the finest sushi experience, blending traditional techniques with modern twists. 
+                    Join us for an unforgettable dining experience.</p>
+                <button onclick="window.location.href='about_us.html'" class="animate__animated animate__fadeInUp">Learn More</button>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone-alt"></i> +6019-7969659</p>
+                <p><i class="fas fa-envelope"></i> qikiqsushi@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Display error message if present in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorMessage = urlParams.get('error');
+        const email = urlParams.get('email');
+        if (errorMessage) {
+            document.getElementById('error-message').textContent = errorMessage;
+        }
+        if (email) {
+            document.getElementById('email').value = email;
+        }
+    </script>
+    <script src="js/user_login.js"></script>
+</body>
+</html>

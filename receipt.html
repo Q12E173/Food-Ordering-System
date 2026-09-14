@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt List</title>
+    <link rel="icon" href="images/logo.png" type="image/ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> <!-- Fancy font -->
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link rel="stylesheet" href="css/adminhome.css">
+    <link rel="stylesheet" href="css/receipt.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/receipt.js" defer></script>
+</head>
+<body>
+    <section id="menu">
+        <div class="logo">
+            <img src="images/cashier.png" alt="food ordering system">
+            <h2>Hello, Admin!</h2>
+        </div>
+        <div class="items">
+            <li><a href="adminhome.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="orders.html"><i class="fas fa-list"></i> View Orders</a></li>
+            <li><a href="receipt.html" class="active"><i class="fas fa-receipt"></i> Print Receipt</a></li>
+            <li><a href="addDish.html"><i class="fas fa-plus-circle"></i> Add New Dish</a></li>
+            <li><a href="showMenu.html"><i class="fas fa-utensils"></i> Show Menu</a></li>
+            <li><a href="earning.html"><i class="fas fa-chart-line"></i> View Earning</a></li>
+            <li><a href="resetPassword.html" id="editPassword"><i class="fas fa-key"></i> Edit Password</a></li>
+        </div>
+    </section>
+
+    <section id="interface">
+        <div class="navigation">
+            <div class="title">
+                <h3>QikiQ Sushi</h3>
+            </div>
+            <div class="logout">
+                <a href="logout.php" class="fas fa-sign-out-alt" style="font-size: 30px; color: red; text-decoration: none;"></a>
+            </div>
+        </div>
+
+        <h3 class="i-name">
+            Receipt List
+        </h3>
+
+        <div class="board">
+            <table id="receiptTable" width="100%">
+                <thead>
+                    <tr>
+                        <td>Order ID</td>
+                        <td>Username</td>
+                        <td>Order Date</td>
+                        <td>Total (RM)</td>
+                        <td>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- This section will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Modal for receipt details -->
+    <div id="receiptModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="receiptDetails">
+                <!-- Static receipt details -->
+                <div class="receipt">
+                    <h2 class="fancy-font">QikiQ Sushi</h2>
+                    <img src="images/logo.png" alt="QikiQ Sushi Logo">
+                    <div class="address">
+                        <p>NO: 8 & 10 GROUND FLOOR,</p>
+                        <p>JALAN KOTA, MELAKA TENGAH,</p>
+                        <p>75450, MELAKA.</p>
+                    </div>
+                    <h3>Invoice</h3>
+                    <div class="order-details">
+                        <p>Order ID: <span id="order-id"></span></p>
+                        <p>Date: <span id="order-date"></span></p>
+                        <p>Username: <span id="username"></span></p>
+                    </div>
+                    <hr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Qty</th>
+                                <th>Description</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-items">
+                            <!-- Items will be populated here -->
+                        </tbody>
+                    </table>
+                    <hr>
+                    <div class="total-line">
+                        <p>Total:</p>
+                        <p id="total"></p>
+                    </div>
+                    <hr>
+                    <p class="center-text">Thank You!!!</p>
+                    <p class="center-text">Please Come Again!!!</p>
+                </div>
+            </div>
+            <button class="print-modal">Download</button>
+        </div>
+    </div>
+</body>
+</html>
