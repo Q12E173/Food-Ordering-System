@@ -1,0 +1,148 @@
+body {
+    font-family: 'ABeeZee', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#cart-section {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 40px auto;
+}
+
+#cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item .item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.cart-item .item-quantity-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1;
+}
+
+.cart-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.quantity-controls .decrease-quantity {
+    background-color: #df0101;
+}
+
+.quantity-controls .decrease-quantity:hover {
+    background-color: #bb0000;
+}
+
+.quantity-controls .decrease-quantity:active {
+    background-color: #9a0000;
+}
+
+.quantity-controls .increase-quantity {
+    background-color: #01ac01;
+}
+
+.quantity-controls .increase-quantity:hover {
+    background-color: #018b01;
+}
+
+.quantity-controls .increase-quantity:active {
+    background-color: #006d00;
+}
+
+.quantity-controls .quantity {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+#cart-actions {
+    display: flex;
+    justify-content: right; 
+    gap: 10px; 
+    margin-top: 20px;
+}
+
+.back-to-menu, .confirm-order {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-to-menu {
+    background-color: #FF4B4B;
+    color: white;
+}
+
+.back-to-menu:hover {
+    background-color: #FF2A2A;
+}
+
+.back-to-menu:active {
+    background-color: #FF0000;
+}
+
+.confirm-order {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.confirm-order:hover {
+    background-color: #45A049;
+}
+
+.confirm-order:active {
+    background-color: #3E8E41;
+}
+
+#total-price-cart {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    margin-top: 20px;
+}

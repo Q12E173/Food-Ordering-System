@@ -1,0 +1,112 @@
+body {
+    font-family: 'ABeeZee', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #F0F3F2;
+    margin: 0;
+    padding: 0;
+}
+
+.order-paper {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Lucida Handwriting';
+}
+
+.header p {
+    margin: 5px 0 15px;
+    font-size: 12px;
+    color:rgb(86, 86, 86);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.order-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.order-info h2 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.order-info .bold {
+    font-weight: bold;
+}
+
+.order-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+
+.order-items li {
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.pay-at-counter {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+
+.buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.buttons button img {
+    width: 24px;
+    height: 24px;
+}
+
+.buttons button:hover {
+    border-color: #FF8B3D;
+    background-color: #FF8B3D;
+}
+
+.buttons button:active {
+    background-color: #FF6700;
+    border-color: #FF6700;
+}
+
+.grey-line {
+    border: 0;
+    border-top: 2px solid rgb(199, 198, 198);
+    margin: 10px 0;
+}

@@ -1,0 +1,332 @@
+body {
+    font-family: 'ABeeZee', sans-serif;
+    background-color: #F0F3F2;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; 
+}
+
+header {
+    background-color: #F0F3F2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(146, 145, 145, 0.1);
+}
+
+header .logo {
+    height: 50px;
+    width: auto;
+    margin-right: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #000000;
+    margin-left: 0;
+    font-family: 'Lucida Handwriting'; 
+}
+
+header .logout {
+    border: 2px solid #0F0F26;
+    background-color: #0F0F26;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 30px;
+    border-radius: 20px;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+header .logout:hover {
+    border-color: #FF8B3D;
+    background-color: #FF8B3D;
+    color: #FFFFFF;
+}
+
+header .logout:active {
+    border-color: #FF6700;
+    background-color: #FF6700;
+    color: #FFFFFF;
+}
+
+.sidebar {
+    background-color: #0F0F26;
+    position: fixed;
+    top: 60px; 
+    width: 200px; 
+    height: calc(100% - 60px);
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(129, 129, 129, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 10px; 
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px; 
+    font-family: 'ABeeZee', sans-serif;
+    font-weight: bold;
+    transition: 0.3s;
+    width: 100%; 
+    text-align: left; 
+}
+
+.sidebar a img {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 10px; 
+    margin-left: 20px;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: #FF8B3D;
+    color: #FFFFFF;
+    outline: none; 
+}
+
+.sidebar a:active {
+    background-color: #FF6700;
+    color: #FFFFFF;
+    outline: none; 
+}
+
+.content {
+    margin-left: 220px;
+    padding: 70px 15px 60px; 
+    padding-top: 120px;
+    background-color: #F0F3F2;
+    min-height: 100vh;
+    width: calc(100% - 220px);
+    font-family: 'ABeeZee', sans-serif;
+    margin-bottom: 150px;
+}
+
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+}
+
+.item-card {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 15px; 
+    width: 250px; 
+    height: 350px; 
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+.item-card .image-container {
+    width: 100%;
+    height: 150px; 
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px 5px 0 0; 
+    margin-bottom: 5px; 
+}
+
+.item-card .item-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.item-card h3 {
+    margin: 5px 0; 
+    font-size: 16px; 
+    font-weight: bold;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+.item-card .description {
+    height: 40px; 
+    overflow-y: auto; 
+    text-overflow: ellipsis;
+    margin-bottom: 2px; 
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+    font-size: 12px;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+.item-card .description::-webkit-scrollbar {
+    display: none;  
+}
+
+.item-card .price {
+    font-weight: bold;
+    color: #000;
+    font-family: 'ABeeZee', sans-serif;
+    margin-bottom: 5px; 
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px; 
+}
+
+.quantity-controls button {
+    border: none;
+    color: #FFFFFF;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 0 3px; 
+    border-radius: 50%;
+    width: 25px; 
+    height: 25px; 
+    font-size: 16px; 
+    font-family: 'ABeeZee', sans-serif;
+}
+
+.quantity-controls .decrease-quantity {
+    background-color: #df0101;
+}
+
+.quantity-controls .increase-quantity {
+    background-color: #01ac01; 
+}
+
+.quantity-controls .decrease-quantity:active {
+    background-color: #9a0000; 
+}
+
+.quantity-controls .increase-quantity:active {
+    background-color: #004c00; 
+}
+
+.quantity-controls .quantity {
+    margin: 0 10px;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+.add-to-cart {
+    border: none;
+    background-color: #0F0F26;
+    color: #FFFFFF;
+    padding: 8px 15px; 
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 20px; 
+    font-size: 14px; 
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'ABeeZee', sans-serif;
+    margin-bottom: 5px; 
+}
+
+.add-to-cart:hover {
+    background-color: #FF8B3D;
+}
+
+.add-to-cart:active {
+    background-color: #FF6700;
+}
+
+footer {
+    background-color: #F0F3F2;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 -4px 8px rgba(129, 129, 129, 0.1);
+    font-family: 'ABeeZee', sans-serif;
+}
+
+footer .footer-left {
+    display: flex;
+    justify-content: flex-start;
+    width: 33%;
+    font-weight: bold;
+}
+
+footer .footer-center {
+    display: flex;
+    justify-content: center;
+    width: 34%;
+    font-weight: bold;
+}
+
+footer .footer-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 33%;
+
+}
+
+footer #cart-summary, footer #total-price {
+    font-size: 18px;
+    font-family: 'ABeeZee', sans-serif;
+    font-weight: bold;
+}
+
+footer .my-cart {
+    display: flex;
+    border: 2px solid #FF8B3D;
+    background-color: #FF8B3D;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 30px;
+    border-radius: 20px;
+    font-family: 'ABeeZee', sans-serif;
+    text-decoration: none; 
+}
+
+
+
+footer .my-cart img.cart-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+footer .my-cart:hover {
+    background-color: #FF6700;
+    color: #FFFFFF;
+    border: 2px solid #FF6700;
+}
+
+footer .my-cart:active {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 2px solid #000000;
+}
+
+
+
+

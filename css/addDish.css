@@ -1,0 +1,126 @@
+
+.formContainer {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.formContainer h1 {
+    text-align: center;
+    margin-bottom: 13px;
+    color: #0F0F26;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.formQuestion {
+    margin-bottom: 15px;
+}
+
+.formQuestion label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 800;
+}
+
+.formQuestion input, .formQuestion select, .formQuestion textarea {
+    width: 100%;
+    padding: 9px;
+    margin-bottom: 9px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addBtn {
+    padding: 10px 20px;
+    background-color: #2c456f;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 20px; 
+}
+
+.cancelBtn {
+    padding: 10px 20px;
+    background-color: #d3d3d3;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.addBtn:hover {
+    background-color: #0F0F26;
+}
+
+.cancelBtn:hover {
+    background-color: #a9a9a9;
+}
+
+@media (max-width: 1024px) {
+    #menu {
+        width: 200px;
+    }
+
+    #interface {
+        margin-left: 200px;
+    }
+
+    .navigation {
+        width: calc(100% - 200px);
+    }
+}
+
+@media (max-width: 768px) {
+    #menu {
+        width: 150px;
+    }
+
+    #interface {
+        margin-left: 150px;
+    }
+
+    .navigation {
+        width: calc(100% - 150px);
+    }
+
+    .formContainer {
+        margin: 100px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #menu {
+        width: 150px; 
+    }
+
+    #interface {
+        margin-left: 150px;
+    }
+
+    .navigation {
+        width: calc(100% - 150px);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .formContainer {
+        width: 90%;
+        margin: 120px auto; 
+    }
+}
+
