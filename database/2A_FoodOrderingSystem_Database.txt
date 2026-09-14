@@ -1,0 +1,61 @@
+CREATE DATABASE food;
+
+use food;
+
+CREATE TABLE admin (
+    admin_id INT PRIMARY KEY NOT NULL,
+    admin_password VARCHAR(255) NOT NULL);
+
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) NOT NULL);
+
+CREATE TABLE items (
+    item_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    description TEXT NOT NULL,
+    image VARCHAR(255) NOT NULL);
+
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    user_id INT NOT NULL,
+    order_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    total DECIMAL(10, 2) NOT NULL,
+    status ENUM('In Progress', 'Complete') NOT NULL DEFAULT 'In Progress',
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+
+CREATE TABLE order_items (
+    order_item_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    order_id INT NOT NULL,
+    item_id INT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (item_id) REFERENCES items(item_id)
+);
+
+INSERT INTO items (name, type, price, description, image) VALUES 
+('Salmon Nigiri', 'Sushi', 12.00, 'Fresh, succulent slices of salmon served atop perfectly seasoned sushi rice, offering a delightful blend of textures and flavors.', 'uploads/salmon_nigiri.jpg'),
+('California Roll', 'Sushi', 10.00, 'Classic sushi roll with crab, avocado, and cucumber, wrapped in rice and seaweed, providing a refreshing and tasty bite.', 'uploads/california_roll.jpg'),
+('Tuna Sashimi', 'Sashimi', 18.00, 'Exquisite slices of raw tuna, known for their fresh taste and buttery texture, served with soy sauce for dipping.', 'uploads/tuna_sashimi.jpg'),
+('Octopus Sashimi', 'Sashimi', 20.00, 'Tender, flavorful octopus slices served with a tangy ponzu sauce, offering a unique and satisfying seafood experience.', 'uploads/octopus_sashimi.jpg'),
+('Gyudon', 'Donburi', 22.00, 'A hearty rice bowl topped with thinly sliced, tender beef and onions simmered in a savory-sweet sauce, garnished with green onions.', 'uploads/gyudon.jpg'),
+('Katsudon', 'Donburi', 20.00, 'Crispy breaded pork cutlet served over rice with a rich and flavorful egg and onion sauce, making for a comforting meal.', 'uploads/katsudon.jpg'),
+('Chicken Teriyaki Bento', 'Bento', 25.00, 'Grilled chicken teriyaki with a savory glaze, served with steamed rice and an assortment of fresh side dishes in a convenient box.', 'uploads/chicken_teriyaki_bento.png'),
+('Vegetarian Bento', 'Bento', 20.00, 'A variety of fresh vegetables, tofu, and rice, artfully arranged in a compartmentalized box for a balanced and healthy meal.', 'uploads/vegetarian_bento.jpg'),
+('Tonkotsu Ramen', 'Ramen/Udon', 25.00, 'Rich pork bone broth ramen with tender chashu pork, marinated egg, fresh vegetables, and flavorful toppings, creating a satisfying meal.', 'uploads/tonkotsu_ramen.jpg'),
+('Tempura Udon', 'Ramen/Udon', 18.00, 'Udon noodles in a light dashi broth, topped with crispy tempura vegetables and shrimp, combining hearty and delicate textures.', 'uploads/tempura_udon.jpg'),
+('Ebi Tempura', 'Tempura', 22.00, 'Lightly battered and fried shrimp tempura, served with a tangy dipping sauce and a side of steamed rice, offering a crispy delight.', 'uploads/ebi_tempura.jpg'),
+('Vegetable Tempura', 'Tempura', 15.00, 'Assorted fresh vegetables in a delicate tempura batter, fried to golden perfection and served with a savory dipping sauce.', 'uploads/vegetable_tempura.jpg'),
+('Green Tea', 'Beverage', 3.00, 'Traditional Japanese green tea, offering a soothing and refreshing drink that can be enjoyed hot or cold, perfect for any meal.', 'uploads/green_tea.jpg'),
+('Matcha Latte', 'Beverage', 12.00, 'Creamy and frothy matcha green tea blended with steamed milk, lightly sweetened to enhance the rich and smooth flavors of matcha.', 'uploads/matcha_latte.jpg'),
+('Mochi Ice Cream', 'Dessert', 10.00, 'Chewy mochi filled with creamy ice cream in various flavors, creating a delightful combination of textures and refreshing taste.', 'uploads/mochi_ice_cream.jpg'),
+('Matcha Cheesecake', 'Dessert', 15.00, 'Creamy cheesecake infused with matcha green tea, offering a rich and velvety texture with earthy matcha notes, perfect for dessert.', 'uploads/matcha_cheesecake.jpg');
+
